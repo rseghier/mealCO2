@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Meal CO2 Calculator</title>
+<style>
+    h1 {
+        text-align: center;
+    }
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+    }
+    .container {
+        background-color: white;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    select, input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #0b3954;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+    }
+    button:hover {
+        background-color: #094256;
+    }
+    .ingredient {
+        margin-bottom: 10px;
+    }
+    .result {
+        margin-top: 20px;
+    }
+  
+    .scale-container {
+        width: 100%;
+        background: linear-gradient(to right, #00e400, #ffff00, #ff7e00, #ff0000);
+        height: 20px;
+        border-radius: 5px;
+        position: relative;
+    }
+    
+    .scale-label {
+        position: absolute;
+        top: -25px; /* Adjust as needed to position above the scale */
+        transform: translateX(-50%);
+        font-weight: bold;
+    }
+    
+    /* Include other styles like .scale-pointer here if needed */
+    
+
+    .scale-pointer {
+        height: 30px;
+        width: 2px;
+        background-color: black;
+        position: absolute;
+        top: -5px;
+    }
+    .ingredient-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    select, input[type="number"] {
+        flex-grow: 1;
+        margin-right: 10px; /* Spacing between select/input and button */
+    }
+    
+    .delete-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #cc0000; /* Red color for the delete icon */
+        font-size: 20px; /* Larger size for the icon */
+    }
+    
+    .delete-btn:hover {
+        color: #ff0000; /* Brighter red on hover */
+    }
+    .blank-row {
+        height: 20px; /* Adjust the height as needed for desired spacing */
+    }
+    
+</style>
+</head>
+<body>
+    <h1>Meal CO2 Calculator</h1>
+    <div class="container">
+        <div id="ingredientsList">
+            <!-- Ingredients will be added here -->
+        </div>
+        <button onclick="addIngredient()">+ Add Ingredient</button>
+        <button onclick="calculateCO2()">Calculate</button>
+        <div class="result" id="result"></div>
+        <div class="blank-row"></div> <!-- First blank row for spacing -->
+        <div class="blank-row"></div> <!-- Second blank row for spacing before the scale -->
+        <div class="scale-container">
+            <span class="scale-label" style="left: 1%;">A</span>   <!-- For 'A' -->
+            <span class="scale-label" style="left: 25%;">B</span>  <!-- For 'B' -->
+            <span class="scale-label" style="left: 50%;">C</span>  <!-- For 'C' -->
+            <span class="scale-label" style="left: 75%;">D</span>  <!-- For 'D' -->
+            <span class="scale-label" style="right: 0%;">E</span>  <!-- For 'E' -->
+            <div class="scale-pointer" style="left: 20%"></div> <!-- Example pointer position -->
+        </div>
+    </div>
+    <script src="mealCO2Calculator.js"></script>
+</body>
+</html>
